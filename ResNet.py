@@ -253,7 +253,7 @@ while (step * batch_size) < max_iter:
     sess.run(optimizer,  feed_dict={learning_rate: lr, tst: True})
 
     if (step % 15000==1) & (step>15000):
-        save_path = saver.save(sess, "tf_resnet_model_iter" + str(step) + ".ckpt")
+        save_path = saver.save(sess, "checkpoint/tf_resnet_model_iter" + str(step) + ".ckpt")
         print("Model saved in file at iteration %d: %s" % (step*batch_size,save_path))
 
     if step % display_step == 1:
@@ -270,7 +270,7 @@ while (step * batch_size) < max_iter:
   
     step += 1
 print("Optimization Finished!")
-save_path = saver.save(sess, "tf_resnet_model.ckpt")
+save_path = saver.save(sess, "checkpoint/tf_resnet_model.ckpt")
 print("Model saved in file: %s" % save_path)
 
 
